@@ -59,8 +59,8 @@ jobs:
       - name: Aprobación manual
         uses: trstringer/manual-approval@v1
         with:
-        secret: ${{ secrets.TOKEN }}
-        approvers: patriciamatosm
+          secret: ${{ secrets.TOKEN }}
+          approvers: patriciamatosm
       - name: Desplegar en Azure
         uses: Azure/webapps-deploy@v2
         with:
