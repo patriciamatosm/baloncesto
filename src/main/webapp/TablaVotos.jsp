@@ -5,7 +5,7 @@
     <link href="estilos.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="resultado">
     <font size=10>
         Votaci&oacute;n al mejor jugador de la liga ACB
         <hr>
