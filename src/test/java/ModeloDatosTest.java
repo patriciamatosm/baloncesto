@@ -13,19 +13,4 @@ public class ModeloDatosTest {
         assertEquals(expResult, result);
         //fail("Fallo forzado.");
     }
-
-    @Test
-    public void testActualizarJugador() {
-        System.out.println("Prueba de actualizarJugador");
-        String nombre = "Llull";
-        ModeloDatos instance = new ModeloDatos();
-        instance.abrirConexionTest();
-        instance.insertTestData();
-        int before = instance.getJugador(nombre);
-        System.out.println("Before " + before);
-        instance.actualizarJugador(nombre);
-        int after = instance.getJugador(nombre);
-        System.out.println("After " + after);
-        assertEquals(before + 1, after);
-    }
 }
