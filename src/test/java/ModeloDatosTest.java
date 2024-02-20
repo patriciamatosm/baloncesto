@@ -19,9 +19,11 @@ public class ModeloDatosTest {
         System.out.println("Prueba de actualizarJugador");
         String nombre = "Llull";
         ModeloDatos instance = new ModeloDatos();
+        instance.abrirConexion();
         int before = instance.getJugador(nombre);
         instance.actualizarJugador(nombre);
         int after = instance.getJugador(nombre);
+        instance.cerrarConexion();
         assertEquals(before + 1, after);
     }
 }
