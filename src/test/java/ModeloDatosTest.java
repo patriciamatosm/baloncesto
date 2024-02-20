@@ -20,6 +20,7 @@ public class ModeloDatosTest {
         String nombre = "Llull";
         ModeloDatos instance = new ModeloDatos();
         instance.abrirConexion();
+        instance.insertTestData();
         int before = instance.getJugador(nombre);
         instance.actualizarJugador(nombre);
         int after = instance.getJugador(nombre);

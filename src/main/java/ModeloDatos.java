@@ -67,6 +67,19 @@ public class ModeloDatos {
         return (cad);
     }
 
+    public void insertTestData() {
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("INSERT INTO Jugadores (id, nombre, votos) VALUES (1, 'Llull', 0)");
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            // No lee de la tabla
+            System.out.println("No inserta en la tabla");
+            System.out.println("El error es: " + e.getMessage());
+        }
+    }
+
     public void actualizarJugador(String nombre) {
         try {
             set = con.createStatement();
