@@ -43,6 +43,17 @@ public class ModeloDatos {
             String url = dbHost + ":" + dbPort + "/" + dbName;
             con = DriverManager.getConnection(url, dbUser, dbPass);
 
+            set = con.createStatement();
+            rs = set.executeQuery("CREATE TABLE `Jugadores` (\r\n" + //
+                                "\t`id` INT NOT NULL AUTO_INCREMENT,\r\n" + //
+                                "\t`nombre` VARCHAR(50) NOT NULL DEFAULT '',\r\n" + //
+                                "\t`votos` INT NOT NULL DEFAULT 0,\r\n" + //
+                                "\tPRIMARY KEY (`id`),\r\n" + //
+                                "\tUNIQUE INDEX `UNIQUE_KEY` (`id`)\r\n" + //
+                                ")");
+            rs.close();
+            set.close();
+
         } catch (Exception e) {
             // No se ha conectado
             System.out.println("No se ha podido conectar");
