@@ -28,6 +28,28 @@ public class ModeloDatos {
         }
     }
 
+    public void abrirConexionTest() {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Con variables de entorno
+            String dbHost = "jdbc:mysql://localhost";
+            String dbPort = "3306";
+            String dbName = "baloncesto";
+            String dbUser = "usuario";
+            String dbPass = "clave";
+
+            String url = dbHost + ":" + dbPort + "/" + dbName;
+            con = DriverManager.getConnection(url, dbUser, dbPass);
+
+        } catch (Exception e) {
+            // No se ha conectado
+            System.out.println("No se ha podido conectar");
+            System.out.println("El error es: " + e.getMessage());
+        }
+    }
+
     public boolean existeJugador(String nombre) {
         boolean existe = false;
         String cad;

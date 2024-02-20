@@ -19,7 +19,7 @@ public class ModeloDatosTest {
         System.out.println("Prueba de actualizarJugador");
         String nombre = "Llull";
         ModeloDatos instance = new ModeloDatos();
-        instance.abrirConexion();
+        instance.abrirConexionTest();
         instance.insertTestData();
         int before = instance.getJugador(nombre);
         instance.actualizarJugador(nombre);
