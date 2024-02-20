@@ -7,23 +7,23 @@ public class ModeloDatosTest {
 
     private ModeloDatos instance;
 
-    @BeforeAll
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() throws SQLException  {
 
         instance = new ModeloDatos();
         instance.abrirConexion();
 
     }
 
-    @AfterAll
-    public void destroy() throws Exception {
+    @AfterEach
+    public void destroy() throws SQLException  {
 
         instance.cerrarConexion();
 
     }
 
     @Test
-    public void testExisteJugador() {
+    public void testExisteJugador() throws SQLException {
         System.out.println("Prueba de existeJugador");
         String nombre = "";
         boolean expResult = false;
@@ -33,7 +33,7 @@ public class ModeloDatosTest {
     }
 
     @Test
-    public void testActualizarJugador() {
+    public void testActualizarJugador() throws SQLException {
         System.out.println("Prueba de actualizarJugador");
         String nombre = "Llull";
         int before = instance.getJugador(nombre);
