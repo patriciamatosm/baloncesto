@@ -17,7 +17,7 @@ public class ModeloDatosTest {
     @Test
     public void testActualizarJugador() {
         System.out.println("Prueba de actualizarJugador");
-        String nombre = "";
+        String nombre = "Llull";
         ModeloDatos instance = new ModeloDatos();
         int before = instance.getJugador(nombre);
         instance.actualizarJugador(nombre);
