@@ -1,0 +1,9 @@
+Patricia Matos Meza.
+
+Comentarios:
+
+1.  Hemos creado un job entre qa y deploy, que despliega la aplicación en Azure en un entorno de staging o pre producción. 
+    Este job es dependendiente de qa, a su vez, deploy es dependiente del mismo.
+
+    Para hacer este despliegue hemos creado una aplicacion web en Azure llamada baloncesto-matos-stage y hemos añadido el secreto
+    al repositorio llamado AZURE_WEBAPP_PUBLISH_PROFILE_PRE.
