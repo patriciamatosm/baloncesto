@@ -51,6 +51,22 @@ public class ModeloDatos {
         return (existe);
     }
 
+    public int getJugador(String nombre) {
+        int cad = 0;
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT votos FROM Jugadores");
+            cad = rs.getInt("votos");
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            // No lee de la tabla
+            System.out.println("No lee de la tabla");
+            System.out.println("El error es: " + e.getMessage());
+        }
+        return (cad);
+    }
+
     public void actualizarJugador(String nombre) {
         try {
             set = con.createStatement();
@@ -73,6 +89,19 @@ public class ModeloDatos {
         } catch (Exception e) {
             // No inserta en la tabla
             System.out.println("No inserta en la tabla");
+            System.out.println("El error es: " + e.getMessage());
+        }
+    }
+
+    public void votesTo0() {
+        try {
+            set = con.createStatement();
+            set.executeUpdate("UPDATE Jugadores SET votos = 0");
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            // No inserta en la tabla
+            System.out.println("No se resetean votos");
             System.out.println("El error es: " + e.getMessage());
         }
     }
