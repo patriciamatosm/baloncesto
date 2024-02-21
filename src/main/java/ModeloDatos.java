@@ -67,7 +67,7 @@ public class ModeloDatos {
         String j = "";
         try {
             set = con.createStatement();
-            rs = set.executeQuery("SELECT * FROM Jugadores");
+            rs = set.executeQuery("SELECT nombre, votos FROM Jugadores");
             while (rs.next()) {
                 j = j.concat(" n: " + rs.getString("Nombre").trim() + " v: " + rs.getString("Votos").trim());
             }
