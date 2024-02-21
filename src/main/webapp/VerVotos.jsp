@@ -10,13 +10,10 @@
 
     Votaci&oacute;n al mejor jugador de la liga ACB
     <hr>
-    <% ArrayList<Jugadores> jug =(ArrayList<Jugadores>) session.getAttribute("jugadores"); %>
-            <c:forEach var="j" items="${jug}">
-                <%=j.nombre%> : <%=j.voto%> <br> <br>
-            </c:forEach>
+    <%=session.getAttribute("jugadores"); %>
 
-            <br>
-            <br> <a href="index.html"> Ir al comienzo</a>
+        <br>
+        <br> <a href="index.html"> Ir al comienzo</a>
 </body>
 
 </html>
