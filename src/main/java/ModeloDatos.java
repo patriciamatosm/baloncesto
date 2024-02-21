@@ -69,7 +69,7 @@ public class ModeloDatos {
             set = con.createStatement();
             rs = set.executeQuery("SELECT * FROM Jugadores");
             while (rs.next()) {
-                j.concat(" " + rs.getString("Nombre") + " " + rs.getString("Votos"));
+                j = j.concat(" " + rs.getString("Nombre") + " " + rs.getString("Votos"));
             }
             rs.close();
             set.close();
