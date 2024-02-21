@@ -62,18 +62,14 @@ public class ModeloDatos {
         return (existe);
     }
 
-    public ArrayList<Jugadores> getData() {
+    public String getData() {
 
-        ArrayList<Jugadores> j = new ArrayList<Jugadores>();
+        String j = "";
         try {
             set = con.createStatement();
             rs = set.executeQuery("SELECT * FROM Jugadores");
             while (rs.next()) {
-                Jugadores aux = new Jugadores(
-                    rs.getString("Nombre"), 
-                    Integer.parseInt(rs.getString("Votos"))
-                    );
-                j.add(aux);
+                j.concat(" " + rs.getString("Nombre") + " " + rs.getString("Votos"));
             }
             rs.close();
             set.close();

@@ -10,10 +10,9 @@
 
     Votaci&oacute;n al mejor jugador de la liga ACB
     <hr>
-    <%@ page import="Jugadores" %>
-    <%@ page import="java.util.ArrayList" %>
-    <% ArrayList<Jugadores> inventoryList= (ArrayList<Jugadores>)session.getAttribute("jugadores"); %>
-            <% for(Jugadores jj: inventoryList) { System.out.println(jj); } %>
+    <% String nombreP=(String) session.getAttribute("jugadores"); %>
+    <br><%=jugadores%>
+
                 <br>
                 <br> <a href="index.html"> Ir al comienzo</a>
 </body>
