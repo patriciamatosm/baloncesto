@@ -22,7 +22,7 @@ public class Acb extends HttpServlet {
         String nombre = (String) req.getParameter("R1");
         String vote0 = (String) req.getParameter("B3");
         String showVotes = (String) req.getParameter("B4");
-        String j;
+        String j = (String) bd.getData();
 
         if (vote0 != null) {
             if (vote0.equals("Poner votos a 0")) {
