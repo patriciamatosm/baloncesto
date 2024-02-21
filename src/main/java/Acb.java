@@ -28,6 +28,8 @@ public class Acb extends HttpServlet {
             if (vote0.equals("Poner votos a 0")) {
                 bd.votesTo0();
             }
+        } else if (showVotes != null) {
+            j = (ArrayList<Jugadores>) bd.getData();
         } else {
             if (nombre.equals("Otros")) {
                 nombre = (String) req.getParameter("txtOtros");
@@ -40,7 +42,6 @@ public class Acb extends HttpServlet {
         }
 
         if(showVotes != null){
-            j = (ArrayList<Jugadores>) bd.getData();
             s.setAttribute("jugadores", j);
             res.sendRedirect(res.encodeRedirectURL("VerVotos.jsp"));
         } else {
