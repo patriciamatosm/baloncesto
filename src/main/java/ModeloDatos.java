@@ -64,7 +64,7 @@ public class ModeloDatos {
 
     public String getData() {
 
-        String j = "";
+        String j = "aaa";
         try {
             set = con.createStatement();
             rs = set.executeQuery("SELECT nombre, votos FROM Jugadores");
