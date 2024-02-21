@@ -42,7 +42,7 @@ public class Acb extends HttpServlet {
         }
 
         if(showVotes != null){
-            s.setAttribute("nombreCliente", j);
+            s.setAttribute("nombreCliente", "aaaaaaaaaaaaaaaaaaaaaaaa");
             res.sendRedirect(res.encodeRedirectURL("VerVotos.jsp"));
         } else {
 
