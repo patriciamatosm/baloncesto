@@ -29,7 +29,7 @@ public class Acb extends HttpServlet {
                 bd.votesTo0();
             }
         } else if (showVotes != null) {
-            j = (String) bd.getData();
+            j = bd.getData();
         } else {
             if (nombre.equals("Otros")) {
                 nombre = (String) req.getParameter("txtOtros");

@@ -11,7 +11,7 @@
     Votaci&oacute;n al mejor jugador de la liga ACB
     <hr>
     <% String nombreP=(String) session.getAttribute("nombreCliente"); %>
-    <br> <%=nombreP%>
+    <br> Jugadores: <%=nombreP%>
 
                 <br>
                 <br> <a href="index.html"> Ir al comienzo</a>
