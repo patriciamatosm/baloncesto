@@ -1,6 +1,8 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level; 
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
 
 public class ModeloDatos {
 
@@ -58,6 +60,32 @@ public class ModeloDatos {
             logger.log(Level.INFO,"El error es: " + e.getMessage());
         }
         return (existe);
+    }
+
+    public ArrayList<Jugadores> getData() {
+
+        ArrayList<Jugadores> j = new ArrayList<Jugadores>();
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT * FROM Jugadores");
+            while (rs.next()) {
+                Jugadores aux = new Jugadores(
+                    rs.getString("Nombre"), 
+                    Integer.parseInt(rs.getString("Votos"))
+                    );
+                j.add(aux);
+            }
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            Logger logger 
+            = Logger.getLogger( 
+                ModeloDatos.class.getName()); 
+            // No lee de la tabla
+            logger.log(Level.INFO,"No lee de la tabla");
+            logger.log(Level.INFO,"El error es: " + e.getMessage());
+        }
+        return (j);
     }
 
     public void actualizarJugador(String nombre) {
