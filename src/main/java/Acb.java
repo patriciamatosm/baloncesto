@@ -20,8 +20,10 @@ public class Acb extends HttpServlet {
         String nombre = (String) req.getParameter("R1");
         String vote0 = (String) req.getParameter("Poner votos a 0");
 
-        if(vote0.equals("Poner votos a 0")){
-            bd.votesTo0();
+        if (vote0 != null) {
+            if (vote0.equals("Poner votos a 0")) {
+                bd.votesTo0();
+            }
         } else {
             if (nombre.equals("Otros")) {
                 nombre = (String) req.getParameter("txtOtros");
