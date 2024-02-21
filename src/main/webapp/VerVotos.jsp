@@ -10,10 +10,8 @@
 
     Votaci&oacute;n al mejor jugador de la liga ACB
     <hr>
-    <% =session.getAttribute("jugadores"); %>
-
-            <br>
-            <br> <a href="index.html"> Ir al comienzo</a>
+    <br>
+    <br> <a href="index.html"> Ir al comienzo</a>
 </body>
 
 </html>
