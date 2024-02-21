@@ -7,3 +7,5 @@ Comentarios:
 
     Para hacer este despliegue hemos creado una aplicacion web en Azure llamada baloncesto-matos-stage y hemos añadido el secreto
     al repositorio llamado AZURE_WEBAPP_PUBLISH_PROFILE_PRE.
+
+    URL: https://baloncesto-matos-stage.azurewebsites.net/Baloncesto/
