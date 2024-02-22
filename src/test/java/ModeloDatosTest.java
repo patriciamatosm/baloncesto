@@ -66,7 +66,7 @@ public class ModeloDatosTest {
 
     private void insertTestData() throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("INSERT INTO Jugadores (nombre, votos) VALUES (?, ?)")) {
-            statement.setString(1, "Llul");
+            statement.setString(1, "Llull");
             statement.setInt(2, 0);
             statement.executeUpdate();
         }
