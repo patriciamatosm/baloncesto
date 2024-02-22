@@ -33,27 +33,6 @@ public class ModeloDatosTest {
         }
     }
 
-    private int getVotes(String nombreJugador) throws SQLException {
-        int votos = 0;
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "usuario",
-                "clave")) {
-
-            String query = "SELECT votos FROM Jugadores WHERE nombre = ?";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setString(1, "nombreJugador");
-                statement.setInt(2, 0);
-                ResultSet resultSet = statement.executeQuery();
-
-                if (resultSet.next()) {
-                    votos = resultSet.getInt("votos");
-                }
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return votos;
-    }
 
     @Test
     public void testExisteJugador() {
@@ -87,13 +66,13 @@ public class ModeloDatosTest {
     @Test
     public void testVote() throws SQLException {
         // Obtén el número de votos del jugador antes de llamar a actualizarJugador()
-        int votosAntes = getVotes("Llull");
+        int votosAntes = modeloDatos.getVotes("Llull");
 
         // Llama al método actualizarJugador()
         modeloDatos.actualizarJugador("Llull");
 
         // Obtén el número de votos del jugador después de llamar a actualizarJugador()
-        int votosDespues = getVotes("Llull");
+        int votosDespues = modeloDatos.getVotes("Llull");
 
         // Comprueba que los votos se han incrementado en 1
         assertEquals(votosAntes + 1, votosDespues, "Los votos del jugador no se han incrementado en 1");
