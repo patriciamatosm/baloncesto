@@ -10,6 +10,13 @@ public class ModeloDatos {
     private Statement set;
     private ResultSet rs;
 
+    public ModeloDatos(Connection connection) {
+        this.con = connection;
+    }
+
+    public ModeloDatos(){
+    }
+
     public void abrirConexion() {
 
         try {
