@@ -45,6 +45,13 @@ public class PruebasPhantomjsIT {
         // Esperar un momento para que la página se actualice
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+        
+        // Volver a la página principal
+        driver.navigate().back();
+
+        // Esperar un momento para que la página se actualice
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         // Pulsar el botón "Ver votos" en la página principal
         WebElement botonVerVotos = driver.findElement(By.id("ver_votos"));
         botonVerVotos.click();
@@ -52,13 +59,11 @@ public class PruebasPhantomjsIT {
         // Esperar un momento para que la página se actualice
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-    
         WebElement paragraphElement = driver.findElement(By.id("stringName"));
         String actualText = paragraphElement.getText();
 
         String expectedText = "Jugadores: n:Llull v:0 n:Rudy v:0 n:Tavares v:0";
         assertEquals(expectedText, actualText, "Text from the paragraph does not match the expected value");
-
 
         System.out.println(driver.getTitle());
         driver.close();
@@ -86,6 +91,12 @@ public class PruebasPhantomjsIT {
         WebElement botonVotar = driver.findElement(By.id("votar"));
         botonVotar.click();
 
+        
+        // Volver a la página principal
+        driver.navigate().back();
+
+        // Esperar un momento para que la página se actualice
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         // Pulsar el botón "Ver votos" en la página principal
         WebElement botonVerVotos = driver.findElement(By.id("ver_votos"));
@@ -94,13 +105,11 @@ public class PruebasPhantomjsIT {
         // Esperar un momento para que la página se actualice
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-    
         WebElement paragraphElement = driver.findElement(By.id("stringName"));
         String actualText = paragraphElement.getText();
 
         String expectedText = "Jugadores: n:Llull v:0 n:Rudy v:0 n:Tavares v:0 n:Patricia v:1 n:Javier v:1";
         assertEquals(expectedText, actualText, "Text from the paragraph does not match the expected value");
-
 
         System.out.println(driver.getTitle());
         driver.close();
