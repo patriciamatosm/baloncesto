@@ -35,7 +35,7 @@ public class ModeloDatosTest {
         // String dbUser = System.getenv().get("DATABASE_USER");
         // String dbPass = System.getenv().get("DATABASE_PASS");
 
-        String jdbcUrl = "jdbc:mysql://" + "jdbc:mysql://localhost" + ":" + "3306" + "/" + "baloncesto";
+        String jdbcUrl = "jdbc:mysql://localhost" + ":" + "3306" + "/" + "baloncesto";
         connection = DriverManager.getConnection(jdbcUrl, "usuario", "clave");
 
         // Insertar datos de prueba en la base de datos (simulación)
