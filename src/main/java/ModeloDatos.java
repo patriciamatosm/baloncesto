@@ -70,7 +70,7 @@ public class ModeloDatos {
             rs = set.executeQuery("SELECT nombre, votos FROM Jugadores");
             j = j.concat(": ");
             while (rs.next()) {
-                j = j.concat(" n: " + rs.getString("Nombre").trim() + " v: " + rs.getString("Votos").trim());
+                j = j.concat("n:" + rs.getString("Nombre").trim() + " v:" + rs.getString("Votos").trim() + "\n");
             }
             rs.close();
             set.close();
