@@ -22,9 +22,8 @@ public class ModeloDatosTest {
         boolean expResult = false;
         boolean result = instance.existeJugador(nombre);
         assertEquals(expResult, result);
-        //fail("Fallo forzado.");
+        // fail("Fallo forzado.");
     }
-
 
     @BeforeEach
     public void setUp() throws SQLException {
@@ -35,11 +34,18 @@ public class ModeloDatosTest {
         // String dbUser = System.getenv().get("DATABASE_USER");
         // String dbPass = System.getenv().get("DATABASE_PASS");
 
-        String jdbcUrl = "jdbc:mysql://localhost" + ":" + "3306" + "/" + "baloncesto";
-        connection = DriverManager.getConnection(jdbcUrl, "usuario", "clave");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-        // Insertar datos de prueba en la base de datos (simulación)
-        insertTestData();
+            String jdbcUrl = "jdbc:mysql://localhost" + ":" + "3306" + "/" + "baloncesto";
+            connection = DriverManager.getConnection(jdbcUrl, "usuario", "clave");
+
+            // Insertar datos de prueba en la base de datos (simulación)
+            insertTestData();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @AfterEach
@@ -65,7 +71,8 @@ public class ModeloDatosTest {
     }
 
     private void insertTestData() throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO Jugadores (nombre, votos) VALUES (?, ?)")) {
+        try (PreparedStatement statement = connection
+                .prepareStatement("INSERT INTO Jugadores (nombre, votos) VALUES (?, ?)")) {
             statement.setString(1, "Llull");
             statement.setInt(2, 0);
             statement.executeUpdate();
@@ -74,7 +81,8 @@ public class ModeloDatosTest {
 
     private int getVotes(String nombreJugador) throws SQLException {
         int votos = 0;
-        try (PreparedStatement statement = connection.prepareStatement("SELECT votos FROM Jugadores WHERE nombre = ?")) {
+        try (PreparedStatement statement = connection
+                .prepareStatement("SELECT votos FROM Jugadores WHERE nombre = ?")) {
             statement.setString(1, nombreJugador);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
