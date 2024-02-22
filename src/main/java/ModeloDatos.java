@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level; 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ModeloDatos {
@@ -9,6 +9,13 @@ public class ModeloDatos {
     private Connection con;
     private Statement set;
     private ResultSet rs;
+
+    public ModeloDatos(Connection connection) {
+        this.con = connection;
+    }
+
+    public ModeloDatos() {
+    }
 
     public void abrirConexion() {
 
@@ -27,12 +34,11 @@ public class ModeloDatos {
 
         } catch (Exception e) {
             // No se ha conectado
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
     }
 
@@ -52,12 +58,11 @@ public class ModeloDatos {
             rs.close();
             set.close();
         } catch (Exception e) {
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
         return (existe);
     }
@@ -75,14 +80,38 @@ public class ModeloDatos {
             rs.close();
             set.close();
         } catch (Exception e) {
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
         return (j);
+    }
+
+    public int getVotes(String nombreJugador) throws SQLException {
+        int votos = 0;
+        String aux = "";
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT nombre, votos FROM Jugadores WHERE nombre = '" + nombreJugador + "'");
+
+            if (rs.next()) {
+                aux = rs.getString("Votos");
+                votos = Integer.parseInt(aux);
+            }
+            rs.close();
+            set.close();
+
+        } catch (SQLException e) {
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
+            // No lee de la tabla
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
+        
+        }
+        return votos;
     }
 
     public void actualizarJugador(String nombre) {
@@ -93,12 +122,11 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No modifica la tabla
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
     }
 
@@ -110,12 +138,11 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No inserta en la tabla
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
     }
 
@@ -127,12 +154,11 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No inserta en la tabla
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"No lee de la tabla");
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "No lee de la tabla");
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
     }
 
@@ -140,11 +166,10 @@ public class ModeloDatos {
         try {
             con.close();
         } catch (Exception e) {
-            Logger logger 
-            = Logger.getLogger( 
-                ModeloDatos.class.getName()); 
+            Logger logger = Logger.getLogger(
+                    ModeloDatos.class.getName());
             // No lee de la tabla
-            logger.log(Level.INFO,"El error es: " + e.getMessage());
+            logger.log(Level.INFO, "El error es: " + e.getMessage());
         }
     }
 
