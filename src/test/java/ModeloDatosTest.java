@@ -28,15 +28,15 @@ public class ModeloDatosTest {
 
     @BeforeEach
     public void setUp() throws SQLException {
-        // Establecer la conexión a la base de datos de prueba
-        String dbHost = System.getenv().get("DATABASE_HOST");
-        String dbPort = System.getenv().get("DATABASE_PORT");
-        String dbName = System.getenv().get("DATABASE_NAME");
-        String dbUser = System.getenv().get("DATABASE_USER");
-        String dbPass = System.getenv().get("DATABASE_PASS");
+        // // Establecer la conexión a la base de datos de prueba
+        // String dbHost = System.getenv().get("DATABASE_HOST");
+        // String dbPort = System.getenv().get("DATABASE_PORT");
+        // String dbName = System.getenv().get("DATABASE_NAME");
+        // String dbUser = System.getenv().get("DATABASE_USER");
+        // String dbPass = System.getenv().get("DATABASE_PASS");
 
-        String jdbcUrl = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
-        connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPass);
+        String jdbcUrl = "jdbc:mysql://" + "jdbc:mysql://localhost" + ":" + "3306" + "/" + "baloncesto";
+        connection = DriverManager.getConnection(jdbcUrl, "usuario", "clave");
 
         // Insertar datos de prueba en la base de datos (simulación)
         insertTestData();
