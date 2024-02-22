@@ -91,12 +91,14 @@ public class ModeloDatos {
 
     public int getVotes(String nombreJugador) throws SQLException {
         int votos = 0;
+        String aux = "";
         try {
             set = con.createStatement();
             rs = set.executeQuery("SELECT nombre, votos FROM Jugadores WHERE nombre = '" + nombreJugador + "'");
 
             if (rs.next()) {
-                votos = rs.getInt("votos");
+                aux = rs.getString("votos");
+                votos = Integer.parseInt(aux);
             }
             rs.close();
             set.close();
