@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,7 +27,7 @@ public class ModeloDatosTest {
     }
 
 
-    @BeforeEach
+    @BeforeAll
     public void setUp() throws SQLException {
         // // Establecer la conexión a la base de datos de prueba
         // String dbHost = System.getenv().get("DATABASE_HOST");
@@ -50,7 +51,7 @@ public class ModeloDatosTest {
         }
     }
 
-    @AfterEach
+    @AfterAll
     public void tearDown() throws SQLException {
         // Cerrar la conexión y limpiar los recursos
         if (connection != null) {
