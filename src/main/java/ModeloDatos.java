@@ -97,7 +97,7 @@ public class ModeloDatos {
             rs = set.executeQuery("SELECT nombre, votos FROM Jugadores WHERE nombre = '" + nombreJugador + "'");
 
             if (rs.next()) {
-                aux = rs.getString("votos");
+                aux = rs.getString("Votos");
                 votos = Integer.parseInt(aux);
             }
             rs.close();
